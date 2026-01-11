@@ -8,7 +8,7 @@ export const DATA = {
     whatsappNumber: "56994856488",
     contactEmail: "vdtm.cl@gmail.com",
     // CORRECCIÓN CRÍTICA: 'contact' debe coincidir con el ID del Footer
-    sections: ["hero", "trusted", "services", "method", "team", "blog", "contact"],
+    sections: ["hero", "trusted", "services", "method", "team", "blog", "contact", "footer"],
 
     menu: [
         { label: "Inicio", id: "hero" },

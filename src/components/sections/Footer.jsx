@@ -1,96 +1,107 @@
 import React from 'react';
-import { Mail, MapPin, Phone, Linkedin, Instagram, Facebook } from 'lucide-react';
-import { ContactForm } from '../ContactForm'; // Importamos el componente blindado
+import { Mail, MapPin, Phone, Linkedin, Instagram, Facebook, Send, Loader2 } from 'lucide-react';
+import { ContactForm } from '../ContactForm';
+import { SectionWrapper } from '../ui/SectionWrapper';
 import { NavigationControls } from '../ui/NavigationControls';
 
 export const RobustFooter = ({ onNavigate }) => {
-    return (
-        <footer className="bg-slate-900 text-white pt-20 pb-10 relative" id="contact">
-            <div className="max-w-7xl mx-auto px-6 lg:px-8">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+    // Componente interno para la info de contacto
+    const ContactInfo = () => (
+        <div className="space-y-6 md:space-y-8">
+            <div>
+                <span className="text-blue-400 font-semibold tracking-wider text-xs md:sm uppercase">
+                    Potencia tu impacto digital
+                </span>
+                <h2 className="text-3xl md:text-5xl font-bold mt-2 mb-3 md:mb-4 leading-tight">
+                    Impulsa tu visión
+                </h2>
+                <p className="text-slate-400 text-sm md:text-lg max-w-md leading-relaxed">
+                    La tecnología avanza, tu comunicación también debería. Analicemos juntos cómo la Inteligencia Artificial puede potenciar tus objetivos hoy.
+                </p>
+            </div>
 
-                    {/* COLUMNA IZQUIERDA: Información y Contexto */}
-                    <div className="space-y-8">
+            <div className="space-y-4 md:space-y-6">
+                {[
+                    { Icon: MapPin, title: "Ubicación", content: "Valparaíso & Viña del Mar, Chile" },
+                    { Icon: Mail, title: "Email", content: "vdtm.cl@gmail.com", isLink: true, href: "mailto:vdtm.cl@gmail.com" },
+                    { Icon: Phone, title: "WhatsApp", content: "+56 9 9485 6488", isLink: true, href: "https://wa.me/56994856488" }
+                ].map((item, idx) => (
+                    <div key={idx} className="flex items-start space-x-3 md:space-x-4">
+                        <div className="p-2 md:p-3 bg-slate-800 rounded-lg text-blue-400">
+                            <item.Icon className="w-5 h-5 md:w-6 md:h-6" />
+                        </div>
                         <div>
-                            <span className="text-blue-400 font-semibold tracking-wider text-sm uppercase">
-                                Potencia tu impacto digital
-                            </span>
-                            <h2 className="text-4xl md:text-5xl font-bold mt-2 mb-4 leading-tight">
-                                Impulsa tu visión
-                            </h2>
-                            <p className="text-slate-400 text-lg max-w-md leading-relaxed">
-                                La tecnología avanza, tu comunicación también debería. Analicemos juntos cómo la Inteligencia Artificial puede potenciar tus objetivos hoy.
-                            </p>
-                        </div>
-
-                        <div className="space-y-6">
-                            <div className="flex items-start space-x-4">
-                                <div className="p-3 bg-slate-800 rounded-lg text-blue-400">
-                                    <MapPin className="w-6 h-6" />
-                                </div>
-                                <div>
-                                    <h4 className="font-semibold text-lg">Ubicación</h4>
-                                    <p className="text-slate-400">Valparaíso & Viña del Mar, Chile</p>
-                                </div>
-                            </div>
-
-                            <div className="flex items-start space-x-4">
-                                <div className="p-3 bg-slate-800 rounded-lg text-blue-400">
-                                    <Mail className="w-6 h-6" />
-                                </div>
-                                <div>
-                                    <h4 className="font-semibold text-lg">Email</h4>
-                                    <a href="mailto:vdtm.cl@gmail.com" className="text-slate-400 hover:text-white transition-colors">
-                                        vdtm.cl@gmail.com
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div className="flex items-start space-x-4">
-                                <div className="p-3 bg-slate-800 rounded-lg text-blue-400">
-                                    <Phone className="w-6 h-6" />
-                                </div>
-                                <div>
-                                    <h4 className="font-semibold text-lg">WhatsApp</h4>
-                                    <a href="https://wa.me/56994856488" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white transition-colors">
-                                        +56 9 9485 6488
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="flex space-x-4 pt-4">
-                            {[Linkedin, Instagram, Facebook].map((Icon, i) => (
-                                <a key={i} href="#" className="p-3 bg-slate-800 rounded-full hover:bg-blue-600 transition-all text-slate-300 hover:text-white">
-                                    <Icon className="w-5 h-5" />
+                            <h4 className="font-semibold text-sm md:text-lg">{item.title}</h4>
+                            {item.isLink ? (
+                                <a href={item.href} target="_blank" rel="noopener noreferrer" className="text-slate-400 text-sm md:text-base hover:text-white transition-colors">
+                                    {item.content}
                                 </a>
-                            ))}
+                            ) : (
+                                <p className="text-slate-400 text-sm md:text-base">{item.content}</p>
+                            )}
                         </div>
                     </div>
+                ))}
+            </div>
 
-                    {/* COLUMNA DERECHA: El Formulario Blindado (Tarjeta Blanca) */}
-                    <div className="relative">
-                        {/* Decoración de fondo para resaltar el formulario */}
-                        <div className="absolute inset-0 bg-blue-500 blur-3xl opacity-10 rounded-full transform translate-x-10 translate-y-10"></div>
+            <div className="flex space-x-4 pt-2">
+                {[Linkedin, Instagram, Facebook].map((Icon, i) => (
+                    <a key={i} href="#" className="p-2 md:p-3 bg-slate-800 rounded-full hover:bg-blue-600 transition-all text-slate-300 hover:text-white">
+                        <Icon className="w-4 h-4 md:w-5 md:h-5" />
+                    </a>
+                ))}
+            </div>
+        </div>
+    );
 
-                        {/* Renderizamos el componente único */}
+    const BottomBar = () => (
+        <div className="border-t border-slate-800 mt-12 md:mt-20 pt-6 md:pt-8 flex flex-col md:flex-row justify-between items-center text-slate-500 text-xs md:sm px-4">
+            <p>© 2026 VDTM Web. Todos los derechos reservados.</p>
+            <div className="flex space-x-4 md:space-x-6 mt-3 md:mt-0">
+                <a href="#" className="hover:text-white transition-colors">Privacidad</a>
+                <a href="#" className="hover:text-white transition-colors">Términos</a>
+            </div>
+        </div>
+    );
+
+    return (
+        <>
+            {/* VISTA DESKTOP: Un solo bloque que contiene todo */}
+            <div className="hidden lg:block">
+                <SectionWrapper id="contact" dark={true} className="relative">
+                    <div className="grid grid-cols-2 gap-12 items-center">
+                        <ContactInfo />
                         <div className="relative">
+                            <div className="absolute inset-0 bg-blue-500 blur-3xl opacity-10 rounded-full transform translate-x-10 translate-y-10"></div>
                             <ContactForm />
                         </div>
                     </div>
-
-                </div>
-
-                {/* BARRA INFERIOR */}
-                <div className="border-t border-slate-800 mt-20 pt-8 flex flex-col md:flex-row justify-between items-center text-slate-500 text-sm">
-                    <p>© 2026 VDTM Web. Todos los derechos reservados.</p>
-                    <div className="flex space-x-6 mt-4 md:mt-0">
-                        <a href="#" className="hover:text-white transition-colors">Privacidad</a>
-                        <a href="#" className="hover:text-white transition-colors">Términos</a>
-                    </div>
-                </div>
+                    <BottomBar />
+                    <NavigationControls prevId="blog" onNavigate={onNavigate} dark={true} />
+                </SectionWrapper>
             </div>
-            <NavigationControls prevId="blog" onNavigate={onNavigate} dark={true} />
-        </footer>
+
+            {/* VISTA MÓVIL: Dividido en dos pantallas */}
+            <div className="lg:hidden">
+                {/* Pantalla 1: Formulario solamente */}
+                <SectionWrapper id="contact" dark={true} className="!justify-center !pt-16 !pb-8 h-dvh overflow-hidden scale-90 sm:scale-100">
+                    <div className="flex flex-col items-center justify-center h-full max-h-[85dvh]">
+                        <div className="w-full max-w-sm">
+                            <ContactForm />
+                        </div>
+                    </div>
+                    <NavigationControls prevId="blog" nextId="footer" onNavigate={onNavigate} dark={true} />
+                </SectionWrapper>
+
+                {/* Pantalla 2: Info + Pie de página */}
+                <SectionWrapper id="footer" dark={true} className="!justify-between !pt-20 !pb-10 min-h-dvh">
+                    <div className="flex flex-col justify-center flex-grow py-8 max-w-sm mx-auto w-full">
+                        <ContactInfo />
+                    </div>
+                    <BottomBar />
+                    <NavigationControls prevId="contact" onNavigate={onNavigate} dark={true} />
+                </SectionWrapper>
+            </div>
+        </>
     );
 };
