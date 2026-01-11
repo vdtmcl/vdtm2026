@@ -1,11 +1,19 @@
-import React from 'react';
-import { Mail, MapPin, Phone, Linkedin, Instagram, Facebook, Send, Loader2 } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Mail, MapPin, Phone, Linkedin, Instagram, Facebook } from 'lucide-react';
 import { ContactForm } from '../ContactForm';
 import { SectionWrapper } from '../ui/SectionWrapper';
 import { NavigationControls } from '../ui/NavigationControls';
 
 export const RobustFooter = ({ onNavigate }) => {
-    // Componente interno para la info de contacto
+    const [isDesktop, setIsDesktop] = useState(false);
+
+    useEffect(() => {
+        const checkRes = () => setIsDesktop(window.innerWidth >= 1024);
+        checkRes();
+        window.addEventListener('resize', checkRes);
+        return () => window.removeEventListener('resize', checkRes);
+    }, []);
+
     const ContactInfo = () => (
         <div className="space-y-6 md:space-y-8">
             <div>
@@ -64,44 +72,42 @@ export const RobustFooter = ({ onNavigate }) => {
         </div>
     );
 
+    if (isDesktop) {
+        return (
+            <SectionWrapper id="contact" dark={true} className="relative">
+                <div className="grid grid-cols-2 gap-12 items-center">
+                    <ContactInfo />
+                    <div className="relative">
+                        <div className="absolute inset-0 bg-blue-500 blur-3xl opacity-10 rounded-full transform translate-x-10 translate-y-10"></div>
+                        <ContactForm />
+                    </div>
+                </div>
+                <BottomBar />
+                <NavigationControls prevId="blog" onNavigate={onNavigate} dark={true} />
+            </SectionWrapper>
+        );
+    }
+
     return (
-        <>
-            {/* VISTA DESKTOP: Un solo bloque que contiene todo */}
-            <div className="hidden lg:block">
-                <SectionWrapper id="contact" dark={true} className="relative">
-                    <div className="grid grid-cols-2 gap-12 items-center">
-                        <ContactInfo />
-                        <div className="relative">
-                            <div className="absolute inset-0 bg-blue-500 blur-3xl opacity-10 rounded-full transform translate-x-10 translate-y-10"></div>
-                            <ContactForm />
-                        </div>
+        <div className="contents">
+            {/* Pantalla 1: Formulario solamente (Móvil) */}
+            <SectionWrapper id="contact" dark={true} className="!justify-center !pt-12 !pb-8 h-dvh overflow-hidden">
+                <div className="flex flex-col items-center justify-center h-full">
+                    <div className="w-full max-w-sm">
+                        <ContactForm dark={true} />
                     </div>
-                    <BottomBar />
-                    <NavigationControls prevId="blog" onNavigate={onNavigate} dark={true} />
-                </SectionWrapper>
-            </div>
+                </div>
+                <NavigationControls prevId="blog" nextId="footer" onNavigate={onNavigate} dark={true} />
+            </SectionWrapper>
 
-            {/* VISTA MÓVIL: Dividido en dos pantallas */}
-            <div className="lg:hidden">
-                {/* Pantalla 1: Formulario solamente */}
-                <SectionWrapper id="contact" dark={true} className="!justify-center !pt-16 !pb-8 h-dvh overflow-hidden scale-90 sm:scale-100">
-                    <div className="flex flex-col items-center justify-center h-full max-h-[85dvh]">
-                        <div className="w-full max-w-sm">
-                            <ContactForm dark={true} />
-                        </div>
-                    </div>
-                    <NavigationControls prevId="blog" nextId="footer" onNavigate={onNavigate} dark={true} />
-                </SectionWrapper>
-
-                {/* Pantalla 2: Info + Pie de página */}
-                <SectionWrapper id="footer" dark={true} className="!justify-between !pt-20 !pb-10 min-h-dvh">
-                    <div className="flex flex-col justify-center flex-grow py-8 max-w-sm mx-auto w-full">
-                        <ContactInfo />
-                    </div>
-                    <BottomBar />
-                    <NavigationControls prevId="contact" onNavigate={onNavigate} dark={true} />
-                </SectionWrapper>
-            </div>
-        </>
+            {/* Pantalla 2: Info + Pie de página (Móvil) */}
+            <SectionWrapper id="footer" dark={true} className="!justify-between !pt-20 !pb-10 min-h-dvh">
+                <div className="flex flex-col justify-center flex-grow py-8 max-w-sm mx-auto w-full">
+                    <ContactInfo />
+                </div>
+                <BottomBar />
+                <NavigationControls prevId="contact" onNavigate={onNavigate} dark={true} />
+            </SectionWrapper>
+        </div>
     );
 };

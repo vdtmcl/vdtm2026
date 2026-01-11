@@ -58,7 +58,7 @@ export const ContactForm = ({ dark = false }) => {
     };
 
     return (
-        <div className={`w-full max-w-md mx-auto p-6 rounded-xl shadow-sm transition-colors border ${dark ? 'bg-slate-800/50 border-slate-700 text-white' : 'bg-white border-slate-100 text-slate-900'}`}>
+        <div className={`w-full max-w-md mx-auto p-6 rounded-xl shadow-sm transition-colors border ${dark ? 'bg-slate-900 border-slate-800 text-white' : 'bg-white border-slate-100 text-slate-900'}`}>
             <div className="mb-6">
                 <h3 className={`text-2xl font-bold ${dark ? 'text-white' : 'text-slate-900'}`}>Contáctanos</h3>
                 <p className={`${dark ? 'text-slate-400' : 'text-slate-500'}`}>Estamos ansiosos por leerte. 🚀</p>
