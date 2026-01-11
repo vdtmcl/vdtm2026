@@ -11,13 +11,12 @@ export const Header = ({ currentSection, onContactClick, onNavigate }) => {
     };
     const isScrolled = currentSection > 0;
     const headerClass = isScrolled ? 'bg-slate-950 text-white shadow-lg py-3 border-b border-slate-800' : 'bg-white/90 backdrop-blur-md text-slate-900 py-4 shadow-sm';
-    const linkClass = isScrolled ? 'text-slate-300 hover:text-white' : 'text-slate-600 hover:text-blue-600';
+    const linkClass = isScrolled ? 'text-slate-300 hover:text-white' : 'text-slate-600 hover:text-sky-500';
     return (
         <header className={`fixed top-0 left-0 w-full z-40 transition-all duration-700 ease-in-out ${headerClass}`}>
             <div className="max-w-7xl mx-auto px-4 md:px-12 flex justify-between items-center">
-                <div className="flex items-center gap-2 font-bold text-2xl tracking-tighter cursor-pointer" onClick={() => scrollTo('hero')}>
-                    <div className="bg-blue-600 text-white p-1 rounded">V</div>
-                    <span>VDTM<span className="text-blue-600">.</span></span>
+                <div className="flex items-center gap-1 font-bold text-2xl tracking-tighter cursor-pointer" onClick={() => scrollTo('hero')}>
+                    <span>VDTM<span className="text-sky-500">.</span></span>
                 </div>
                 <nav className="hidden md:flex items-center gap-8">
                     {DATA.menu.map(item => (

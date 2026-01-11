@@ -63,10 +63,10 @@ export const TrustedBy = ({ onNavigate }) => {
                     <span className="uppercase tracking-widest text-xs font-bold text-blue-600 mb-2 block">Experiencia Comprobada</span>
                     <h3 className="text-2xl md:text-3xl font-bold text-slate-900">Han confiado en nosotros</h3>
                 </div>
-                <div ref={marqueeRef} className="relative flex mb-8 md:mb-16 py-8 cursor-default overflow-x-hidden">
-                    <div className="flex gap-8 md:gap-10 animate-marquee whitespace-nowrap items-center">
+                <div ref={marqueeRef} className="relative flex mb-8 md:mb-16 py-4 md:py-8 cursor-default overflow-x-hidden">
+                    <div className="flex gap-4 md:gap-10 animate-marquee whitespace-nowrap items-center">
                         {[...DATA.trustedLogos, ...DATA.trustedLogos].map((logo, i) => (
-                            <div key={i} className="flex items-center justify-center flex-shrink-0 px-4 w-[200px] h-[200px]">
+                            <div key={i} className="flex items-center justify-center flex-shrink-0 px-2 md:px-4 w-[160px] h-[160px] md:w-[200px] md:h-[200px]">
                                 <OptimizedImage
                                     src={logo.logoUrl}
                                     alt={logo.name}
@@ -102,7 +102,7 @@ export const TrustedBy = ({ onNavigate }) => {
             </div>
             <style>{`
         @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-       .animate-marquee { animation: marquee 80s linear infinite; }
+       .animate-marquee { animation: marquee 40s linear infinite; }
       `}</style>
             <NavigationControls prevId="hero" nextId="services" onNavigate={onNavigate} />
         </SectionWrapper>

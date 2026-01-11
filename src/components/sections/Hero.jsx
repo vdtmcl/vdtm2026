@@ -8,13 +8,13 @@ import { NavigationControls } from '../ui/NavigationControls';
 
 export const Hero = ({ onContactClick, onNavigate }) => (
     <SectionWrapper id="hero" className="pt-36 md:pt-0">
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-blue-50 to-transparent hidden xl:block"></div>
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-sky-50 to-transparent hidden xl:block"></div>
         <div className="grid xl:grid-cols-2 gap-8 xl:gap-12 items-center relative z-20 h-full">
             <Reveal className="space-y-6 text-center xl:text-left flex flex-col justify-center items-center xl:items-start">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-bold uppercase tracking-wide">
-                    <Zap className="w-3 h-3" /> En todo Valparaíso & Viña del Mar
+                    <Zap className="w-3 h-3 text-blue-500 fill-blue-500" /> VDTM En todo Valparaíso & Viña del Mar
                 </div>
-                <h1 className="text-3xl md:text-4xl xl:text-5xl font-extrabold text-slate-900 leading-tight" aria-label="Agencia de Comunicación Digital para Organizaciones">
+                <h1 className="text-4xl md:text-5xl xl:text-6xl font-extrabold text-slate-900 leading-[1.1]" aria-label="Agencia de Comunicación Digital para Organizaciones">
                     Agencia de <br /> Comunicación Digital <br /> <span className="whitespace-nowrap">para <WordRotator /></span>
                 </h1>
                 <div className="xl:hidden relative rounded-2xl overflow-hidden shadow-xl aspect-video bg-slate-900 my-4 w-full">

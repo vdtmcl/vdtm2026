@@ -8,11 +8,11 @@ export const TeamMemberModal = ({ member }) => (
         </div>
         <div className="p-8 md:p-10 md:w-2/3 bg-white flex flex-col justify-center">
             <div className="flex items-center gap-2 mb-2">
-                {member.type === 'human' ? <User className="w-5 h-5 text-blue-600" /> : <Bot className="w-5 h-5 text-purple-600" />}
+                {member.type === 'human' ? <User className="w-5 h-5 text-sky-500" /> : <Bot className="w-5 h-5 text-purple-600" />}
                 <span className="text-sm font-bold uppercase text-slate-400 tracking-wider">{member.type === 'human' ? 'Talento Humano' : 'Agente IA'}</span>
             </div>
             <h3 className="text-3xl font-bold text-slate-900 mb-1">{member.name}</h3>
-            <p className="text-blue-600 font-medium mb-6">{member.role}</p>
+            <p className="text-sky-500 font-medium mb-6">{member.role}</p>
             <p className="text-slate-600 leading-relaxed text-lg">{member.bio}</p>
         </div>
     </div>
@@ -29,9 +29,9 @@ export const TeamCard = ({ member, onClick }) => (
         <div className="p-2 md:p-4 flex-1 flex flex-col">
             <div className="mb-1 md:mb-2">
                 <h4 className="font-bold text-slate-900 text-xs md:text-lg leading-tight">{member.name}</h4>
-                <p className="text-[9px] md:text-xs uppercase tracking-wider font-semibold text-blue-600">{member.role}</p>
+                <p className="text-[9px] md:text-xs uppercase tracking-wider font-semibold text-sky-500">{member.role}</p>
             </div>
-            <button onClick={onClick} className="mt-auto text-[10px] md:text-sm text-slate-500 hover:text-blue-600 font-medium flex items-center gap-1 transition-colors pt-1.5 md:pt-4 border-t border-slate-50">
+            <button onClick={onClick} className="mt-auto text-[10px] md:text-sm text-slate-500 hover:text-sky-500 font-medium flex items-center gap-1 transition-colors pt-1.5 md:pt-4 border-t border-slate-50">
                 <span className="hidden md:inline">Ver perfil</span>
                 <span className="md:hidden">Perfil</span>
                 <ArrowRight className="w-2.5 h-2.5" />

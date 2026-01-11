@@ -20,15 +20,14 @@ export const DATA = {
     ],
     trustedLogos: [
         { name: "Logo 1", logoUrl: "https://res.cloudinary.com/vdtm-cl/image/upload/v1767959692/VDTM_2_gbf1jc.png" },
-        { name: "Logo 2", logoUrl: "https://res.cloudinary.com/vdtm-cl/image/upload/v1767959693/VDTM_4_iptu37.png" },
+        { name: "Logo 14", logoUrl: "https://res.cloudinary.com/vdtm-cl/image/upload/v1767959970/VDTM_14_d4xcpx.png" },
         { name: "Logo 3", logoUrl: "https://res.cloudinary.com/vdtm-cl/image/upload/v1767959693/VDTM_5_jpqqra.png" },
-        { name: "Logo 6", logoUrl: "https://res.cloudinary.com/vdtm-cl/image/upload/v1767959694/VDTM_6_hpvcpa.png" },
+        { name: "Logo 2", logoUrl: "https://res.cloudinary.com/vdtm-cl/image/upload/v1767959693/VDTM_4_iptu37.png" },
         { name: "Logo 7", logoUrl: "https://res.cloudinary.com/vdtm-cl/image/upload/v1767959697/VDTM_8_dw5sda.png" },
         { name: "Logo 8", logoUrl: "https://res.cloudinary.com/vdtm-cl/image/upload/v1767959696/VDTM_7_ytx4c5.png" },
         { name: "Logo 11", logoUrl: "https://res.cloudinary.com/vdtm-cl/image/upload/v1767959699/VDTM_11_saorl2.png" },
         { name: "Logo 12", logoUrl: "https://res.cloudinary.com/vdtm-cl/image/upload/v1767951700/VDTM_12_nqr64c.png" },
-        { name: "Logo 13", logoUrl: "https://res.cloudinary.com/vdtm-cl/image/upload/v1767959700/VDTM_13_nnbyxq.png" },
-        { name: "Logo 14", logoUrl: "https://res.cloudinary.com/vdtm-cl/image/upload/v1767959970/VDTM_14_d4xcpx.png" }
+        { name: "Logo 13", logoUrl: "https://res.cloudinary.com/vdtm-cl/image/upload/v1767959700/VDTM_13_nnbyxq.png" }
     ],
     services: [
         {
@@ -100,7 +99,7 @@ export const DATA = {
             name: "Atlas IA",
             role: "Periodista & Redacción",
             bio: "Modelo de lenguaje avanzado ajustado para redacción periodística. Capaz de generar notas de prensa y artículos SEO en segundos.",
-            color: "bg-blue-100 text-blue-700"
+            color: "bg-sky-100 text-sky-700"
         },
         {
             type: "ai",

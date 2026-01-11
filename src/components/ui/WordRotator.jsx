@@ -28,7 +28,7 @@ export const WordRotator = () => {
         >
             <span
                 className={`col-start-1 row-start-1 transition-opacity duration-500 ease-in-out ${visible ? 'opacity-100' : 'opacity-0'
-                    } text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 px-2 pb-8 -mb-8 pt-4 -mt-4`}
+                    } text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-sky-400 px-2 pb-8 -mb-8 pt-4 -mt-4`}
                 style={{
                     WebkitBackgroundClip: 'text',
                     backgroundClip: 'text',

@@ -64,7 +64,10 @@ export const OptimizedImage = ({
     return (
         <div
             className={`relative overflow-hidden ${className}`}
-            style={{ width, height }}
+            style={{
+                width: (width && !className.includes('w-')) ? width : undefined,
+                height: (height && !className.includes('h-')) ? height : undefined
+            }}
         >
             {/* Placeholder mientras carga */}
             {!isLoaded && (

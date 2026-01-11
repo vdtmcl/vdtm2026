@@ -17,10 +17,10 @@ export const Services = ({ onNavigate }) => {
             <div className="flex flex-col md:grid md:grid-cols-3 gap-3 md:gap-8 h-full md:h-auto overflow-y-auto md:overflow-visible no-scrollbar pb-20 md:pb-0">
                 {DATA.services.map((svc, idx) => (
                     <Reveal key={idx} delay={idx * 100}>
-                        <div className={`bg-slate-800 rounded-2xl border border-slate-700 overflow-hidden transition-all duration-300 cursor-pointer hover:border-blue-500/50 flex flex-col md:block ${openServiceId === svc.id ? 'ring-2 ring-blue-500 bg-slate-750 flex-grow md:flex-grow-0' : 'flex-grow md:flex-grow-0'}`} onClick={() => toggleService(svc.id)}>
+                        <div className={`bg-slate-800 rounded-2xl border border-slate-700 overflow-hidden transition-all duration-300 cursor-pointer hover:border-sky-500/50 flex flex-col md:block ${openServiceId === svc.id ? 'ring-2 ring-sky-500 bg-slate-750 flex-grow md:flex-grow-0' : 'flex-grow md:flex-grow-0'}`} onClick={() => toggleService(svc.id)}>
                             <div className="p-3 md:p-8 flex flex-col h-full">
                                 <div className="flex items-center gap-4 md:block mb-2 md:mb-6">
-                                    <div className={`w-10 h-10 md:w-12 md:h-12 rounded-lg flex items-center justify-center transition-colors shrink-0 ${openServiceId === svc.id ? 'bg-blue-600 text-white' : 'bg-slate-900 text-blue-400'}`}>
+                                    <div className={`w-10 h-10 md:w-12 md:h-12 rounded-lg flex items-center justify-center transition-colors shrink-0 ${openServiceId === svc.id ? 'bg-gradient-to-br from-blue-600 to-sky-400 text-white' : 'bg-slate-900 text-sky-400'}`}>
                                         {svc.icon}
                                     </div>
                                     <h3 className="text-lg md:text-xl font-bold text-white">{svc.title}</h3>
@@ -29,7 +29,7 @@ export const Services = ({ onNavigate }) => {
                                 <div className={`md:hidden overflow-hidden transition-all duration-500 ${openServiceId === svc.id ? 'max-h-[500px] opacity-100 mb-2' : 'max-h-0 opacity-0'}`}>
                                     <p className="text-slate-300 text-xs leading-relaxed border-t border-slate-700 pt-2">{svc.detailText}</p>
                                 </div>
-                                <div className="text-blue-400 text-xs md:text-sm font-semibold flex items-center gap-2 hover:text-blue-300 mt-auto">
+                                <div className="text-sky-400 text-xs md:text-sm font-semibold flex items-center gap-2 hover:text-sky-300 mt-auto">
                                     {openServiceId === svc.id ? 'Cerrar' : 'Ver detalles'}
                                     {openServiceId === svc.id ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
                                 </div>
