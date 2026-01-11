@@ -16,126 +16,80 @@ import { SEO } from './components/SEO';
 import { StructuredData, generateArticleStructuredData, generatePersonStructuredData, generateOrganizationStructuredData } from './components/StructuredData';
 import { DATA } from './data';
 
+import Lenis from 'lenis';
+
 export default function App() {
   const containerRef = useRef(null);
   const [selectedPost, setSelectedPost] = useState(null);
   const [selectedMember, setSelectedMember] = useState(null);
   const [isContactOpen, setIsContactOpen] = useState(false);
   const [currentSectionIndex, setCurrentSectionIndex] = useState(0);
-  const [isScrolling, setIsScrolling] = useState(false);
-  const touchStartY = useRef(0);
 
   const openContact = () => setIsContactOpen(true);
   const handleContactFromBlog = () => { setSelectedPost(null); setTimeout(openContact, 300); };
   const isModalOpen = !!selectedPost || !!selectedMember || isContactOpen;
 
-  // Motor de Scroll Optimizado
-  const smoothScrollTo = (target, duration = 1500) => {
-    const container = containerRef.current;
-    if (!container || isScrolling) return;
+  // Inicializar Lenis para Scroll Suave
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      orientation: 'vertical',
+      gestureOrientation: 'vertical',
+      smoothWheel: true,
+      wheelMultiplier: 1,
+      touchMultiplier: 2,
+      infinite: false,
+    });
 
-    let targetTop;
-    if (typeof target === 'string') {
-      const el = document.getElementById(target);
-      if (!el) {
-        console.warn(`[VDTM Scroll] No se encontró la sección: ${target}`);
-        return;
-      }
-      targetTop = el.offsetTop;
-      const newIndex = DATA.sections.indexOf(target);
-      if (newIndex !== -1) setCurrentSectionIndex(newIndex);
-    } else {
-      targetTop = target;
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
     }
 
-    setIsScrolling(true);
-    const start = container.scrollTop;
-    const distance = targetTop - start;
-    let startTime = null;
+    requestAnimationFrame(raf);
 
-    const animation = (currentTime) => {
-      if (startTime === null) startTime = currentTime;
-      const timeElapsed = currentTime - startTime;
-      const ease = (t, b, c, d) => {
-        if ((t /= d / 2) < 1) return c / 2 * t * t * t * t + b;
-        return -c / 2 * ((t -= 2) * t * t * t - 2) + b;
-      };
-      container.scrollTop = ease(timeElapsed, start, distance, duration);
-      if (timeElapsed < duration) requestAnimationFrame(animation);
-      else setIsScrolling(false);
+    return () => {
+      lenis.destroy();
     };
-    requestAnimationFrame(animation);
-  };
+  }, []);
 
-  const handleNavigate = (id) => smoothScrollTo(id);
-
-  const handleScrollMovement = (direction, container) => {
-    if (isScrolling || isModalOpen) return;
-
-    const currentSectionId = DATA.sections[currentSectionIndex];
-    const currentSectionEl = document.getElementById(currentSectionId);
-
-    if (!currentSectionEl) return;
-
-    const sectionBottom = currentSectionEl.offsetTop + currentSectionEl.offsetHeight;
-    const viewportBottom = container.scrollTop + container.clientHeight;
-    const isLongSection = currentSectionEl.offsetHeight > container.clientHeight;
-    const atBottom = viewportBottom >= sectionBottom - 5;
-    const atTop = container.scrollTop <= currentSectionEl.offsetTop + 5;
-
-    if (direction === 'down') {
-      if (isLongSection && !atBottom) {
-        const targetScroll = sectionBottom - container.clientHeight;
-        smoothScrollTo(targetScroll);
-        return;
-      }
-      if (currentSectionIndex < DATA.sections.length - 1) {
-        smoothScrollTo(DATA.sections[currentSectionIndex + 1]);
-      }
-    } else if (direction === 'up') {
-      if (isLongSection && !atTop) {
-        smoothScrollTo(currentSectionEl.offsetTop);
-        return;
-      }
-      if (currentSectionIndex > 0) {
-        smoothScrollTo(DATA.sections[currentSectionIndex - 1]);
-      }
-    }
+  // Navegación suave a secciones
+  const handleNavigate = (id) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.scrollIntoView({ behavior: 'smooth' });
   };
 
   useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
-
-    const handleWheel = (e) => {
-      if (isModalOpen) return;
-      e.preventDefault();
-      handleScrollMovement(e.deltaY > 0 ? 'down' : 'up', container);
+    // Observador para actualizar la sección activa basándose en el scroll real
+    const observerOptions = {
+      root: null,
+      rootMargin: '-20% 0px -70% 0px', // Detectar cuando la sección está en la parte superior/central
+      threshold: 0
     };
 
-    const handleTouchStart = (e) => {
-      touchStartY.current = e.touches[0].clientY;
+    const observerCallback = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const index = DATA.sections.indexOf(entry.target.id);
+          if (index !== -1) {
+            setCurrentSectionIndex(index);
+          }
+        }
+      });
     };
 
-    const handleTouchEnd = (e) => {
-      if (isModalOpen) return;
-      const touchEndY = e.changedTouches[0].clientY;
-      const diff = touchStartY.current - touchEndY;
-      if (Math.abs(diff) > 30) {
-        handleScrollMovement(diff > 0 ? 'down' : 'up', container);
-      }
-    };
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
 
-    container.addEventListener('wheel', handleWheel, { passive: false });
-    container.addEventListener('touchstart', handleTouchStart, { passive: true });
-    container.addEventListener('touchend', handleTouchEnd, { passive: true });
+    // Observar todas las secciones definidas en DATA.sections
+    DATA.sections.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
 
-    return () => {
-      container.removeEventListener('wheel', handleWheel);
-      container.removeEventListener('touchstart', handleTouchStart);
-      container.removeEventListener('touchend', handleTouchEnd);
-    };
-  }, [currentSectionIndex, isScrolling, isModalOpen]);
+    return () => observer.disconnect();
+  }, []);
 
   // SEO dinámico basado en contenido actual
   const getCurrentSEO = () => {
@@ -182,8 +136,16 @@ export default function App() {
 
   const structuredData = getStructuredData();
 
+  // Imágenes para el carrusel del formulario de contacto
+  const teamImages = [
+    "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800&h=1200",
+    "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=800&h=1200",
+    "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=800&h=1200",
+    "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&q=80&w=800&h=1200"
+  ];
+
   return (
-    <div ref={containerRef} className="font-sans text-slate-900 antialiased selection:bg-blue-200 selection:text-blue-900 h-screen overflow-hidden">
+    <div ref={containerRef} className="font-sans text-slate-900 antialiased selection:bg-blue-200 selection:text-blue-900 min-h-screen">
       <SEO {...currentSEO} />
       <StructuredData data={structuredData} />
       <Header currentSection={currentSectionIndex} onContactClick={openContact} onNavigate={handleNavigate} />
@@ -203,7 +165,57 @@ export default function App() {
 
       {selectedPost && <ModalWrapper onClose={() => setSelectedPost(null)}><BlogPostContent post={selectedPost} onContactClick={handleContactFromBlog} /></ModalWrapper>}
       {selectedMember && <ModalWrapper onClose={() => setSelectedMember(null)}><TeamMemberModal member={selectedMember} /></ModalWrapper>}
-      {isContactOpen && <ModalWrapper onClose={() => setIsContactOpen(false)}><ContactForm /></ModalWrapper>}
+
+      {/* Modal de Contacto con Carrusel */}
+      {isContactOpen && (
+        <ModalWrapper onClose={() => setIsContactOpen(false)}>
+          <div className="flex flex-col md:flex-row max-w-4xl w-full bg-white rounded-2xl overflow-hidden shadow-2xl">
+            {/* Carrusel de Imágenes (Solo visible en desktop/tablet) */}
+            <div className="hidden md:block w-1/3 relative overflow-hidden bg-slate-900">
+              <div className="absolute inset-0 animate-carousel-vertical">
+                {teamImages.map((img, index) => (
+                  <div key={index} className="h-full w-full relative">
+                    <img src={img} alt="Equipo VDTM" className="w-full h-full object-cover opacity-80" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
+                  </div>
+                ))}
+                {/* Duplicar para efecto infinito */}
+                {teamImages.map((img, index) => (
+                  <div key={`dup-${index}`} className="h-full w-full relative">
+                    <img src={img} alt="Equipo VDTM" className="w-full h-full object-cover opacity-80" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
+                  </div>
+                ))}
+              </div>
+              <div className="absolute bottom-6 left-6 right-6 z-10">
+                <p className="text-white text-lg font-bold leading-tight">Construyendo el futuro digital de la V Región.</p>
+              </div>
+            </div>
+
+            {/* Formulario */}
+            <div className="flex-1 p-2 md:p-0">
+              <ContactForm />
+            </div>
+          </div>
+          <style>{`
+            @keyframes carousel-vertical {
+              0% { transform: translateY(0); }
+              100% { transform: translateY(-50%); }
+            }
+            .animate-carousel-vertical {
+              display: flex;
+              flex-direction: column;
+              height: 100%;
+              animation: carousel-vertical 20s linear infinite;
+            }
+            /* Ajustar altura contenedora para que el carrusel funcione */
+            .animate-carousel-vertical > div {
+               flex-shrink: 0;
+               height: 100%; 
+            }
+          `}</style>
+        </ModalWrapper>
+      )}
     </div>
   );
 }

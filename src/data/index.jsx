@@ -118,9 +118,84 @@ export const DATA = {
         }
     ],
     blog: [
-        { id: 1, title: "IA en el turismo de Valparaíso", date: "02 Ene 2026", cat: "Tendencias", image: "https://images.unsplash.com/photo-1520175480921-4edfa2983e0f?auto=format&fit=crop&q=80&w=800&h=400", content: "<p>Contenido demo...</p>" },
-        { id: 2, title: "SSG vs SSR: ¿Qué necesita tu empresa?", date: "28 Dic 2025", cat: "Tecnología", image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=800&h=400", content: "<p>Contenido demo...</p>" },
-        { id: 3, title: "Ciberseguridad Corporativa", date: "15 Dic 2025", cat: "Seguridad", image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800&h=400", content: "<p>Contenido demo...</p>" },
+        {
+            id: 1,
+            title: "IA en el turismo de Valparaíso",
+            date: "02 Ene 2026",
+            cat: "Tendencias",
+            image: "https://images.unsplash.com/photo-1520175480921-4edfa2983e0f?auto=format&fit=crop&q=80&w=800&h=400",
+            content: `
+            <p>Valparaíso, con sus cerros coloridos y su laberinto de escaleras, siempre ha sido un imán para el turismo global. Pero, ¿cómo está transformando la Inteligencia Artificial la experiencia de visitar la Joya del Pacífico en 2026? 🌊🤖</p>
+            
+            <h3>Hiper-personalización de Rutas Patrimoniales</h3>
+            <p>Atrás quedaron los días de los mapas de papel genéricos. Hoy, las aplicaciones de turismo impulsadas por IA analizan el perfil del visitante en tiempo real. ¿Eres un amante del street art o prefieres la arquitectura victoriana? 🎨</p>
+            <p>Los algoritmos ahora sugieren rutas dinámicas que evitan las aglomeraciones de los cruceros y te llevan a rincones secretos que solo los locales conocen. Esto no solo mejora la experiencia del usuario, sino que ayuda a descongestionar los puntos críticos como el Cerro Alegre y Concepción, distribuyendo los beneficios económicos a otros barrios emergentes.</p>
+
+            <h3>Chatbots que hablan "Chileno"</h3>
+            <p>La barrera del idioma es cosa del pasado. Los nuevos asistentes virtuales locales no solo traducen, sino que interpretan modismos y contexto cultural. Imagina preguntar "¿Dónde está la mejor picada?" y recibir una respuesta precisa, entendiendo que buscas comida abundante, rica y a buen precio, no necesariamente un restaurante de lujo. 🍲</p>
+
+            <h3>El Desafío de la Ética Digital</h3>
+            <p>Sin embargo, no todo es color de rosa. La implementación de cámaras con IA para seguridad y conteo de flujos turísticos plantea interrogantes sobre la privacidad. En VDTM creemos que la tecnología debe servir a la comunidad sin invadirla. Es vital encontrar un equilibrio donde la innovación respete la esencia bohemia y libre del puerto. ⚓</p>
+
+            <p>El futuro del turismo en la V Región es híbrido: una base tecnológica robusta que potencia, sin reemplazar, la calidez humana de nuestros guías y anfitriones. ¡El viaje recién comienza! 🚀</p>
+            `
+        },
+        {
+            id: 2,
+            title: "SSG vs SSR: ¿Qué necesita tu empresa?",
+            date: "28 Dic 2025",
+            cat: "Tecnología",
+            image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=800&h=400",
+            content: `
+            <p>En el mundo del desarrollo web moderno, elegir la arquitectura correcta puede ser la diferencia entre un sitio que vuela y uno que se arrastra. Hoy desglosamos la eterna batalla: <strong>Static Site Generation (SSG)</strong> vs <strong>Server-Side Rendering (SSR)</strong>. 💻⚡</p>
+
+            <h3>SSG: Velocidad Pura</h3>
+            <p>La Generación de Sitios Estáticos (SSG) es como tener la comida lista antes de que el cliente llegue al restaurante. Las páginas se construyen en el momento de la "compilación" (build time). Cuando un usuario entra a tu web, el servidor solo entrega archivos HTML ya listos. 🚀</p>
+            <p><strong>¿Para quién es ideal?</strong></p>
+            <ul>
+                <li>Sitios corporativos.</li>
+                <li>Landing pages de marketing.</li>
+                <li>Blogs y portafolios.</li>
+            </ul>
+            <p>Es la opción más barata de alojar (funciona perfecto en CDNs como Cloudflare o Netlify) y la más segura, ya que no hay base de datos expuesta en tiempo real.</p>
+
+            <h3>SSR: Dinamismo en Tiempo Real</h3>
+            <p>Por otro lado, el Renderizado del Lado del Servidor (SSR) cocina el plato cada vez que alguien lo pide. El servidor procesa la solicitud, busca datos actualizados y "dibuja" la página al instante. 🍳</p>
+            <p><strong>¿Cuándo usarlo?</strong></p>
+            <ul>
+                <li>Redes sociales o foros.</li>
+                <li>Dashboards con datos en vivo.</li>
+                <li>Sitios de noticias de último minuto.</li>
+            </ul>
+
+            <h3>El Veredicto VDTM</h3>
+            <p>Para el 90% de las empresas en la V Región, <strong>SSG es el ganador indiscutido</strong>. Ofrece una performance inigualable, costos de mantenimiento cercanos a cero y una seguridad blindada. En VDTM utilizamos frameworks híbridos como Astro o Next.js que nos permiten obtener lo mejor de ambos mundos: velocidad estática base, con islas de interactividad dinámica donde sea necesario. 🌐💡</p>
+            `
+        },
+        {
+            id: 3,
+            title: "Ciberseguridad Corporativa en 2026",
+            date: "15 Dic 2025",
+            cat: "Seguridad",
+            image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800&h=400",
+            content: `
+            <p>El perímetro de seguridad ya no existe. Con el trabajo híbrido consolidado y la nube como estándar, las murallas de fuego (firewalls) tradicionales son insuficientes. Bienvenidos a la era de la arquitectura <strong>Zero Trust</strong>. 🔒🚫</p>
+
+            <h3>"Nunca confíes, siempre verifica"</h3>
+            <p>Ese es el mantra de 2026. Ya no importa si la conexión viene desde dentro de la oficina o desde una cafetería en Viña del Mar. Cada intento de acceso a los datos de la empresa debe ser autenticado, autorizado y cifrado. 🕵️‍♂️</p>
+
+            <h3>El factor humano: El eslabón más débil</h3>
+            <p>Sorprendentemente, la mayor amenaza no son los hackers rusos con capuchas, sino un correo de phishing bien redactado. La IA generativa ha permitido a los ciberdelincuentes crear correos estafa con una gramática perfecta y un contexto aterradoramente creíble. 🎣</p>
+            <p>En VDTM recomendamos:</p>
+            <ol>
+                <li><strong>Autenticación Multifactor (MFA) obligatoria:</strong> Sin excusas.</li>
+                <li><strong>Capacitación continua:</strong> Simular ataques para entrenar al equipo.</li>
+                <li><strong>Backups inmutables:</strong> La única defensa real contra el Ransomware.</li>
+            </ol>
+
+            <p>La seguridad no es un producto que compras, es un proceso que vives. Proteger los activos digitales de tu empresa es proteger su futuro. 🛡️💼</p>
+            `
+        },
         { id: 4, title: "Ética de la IA en Salud", date: "10 Dic 2025", cat: "Salud", image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=800&h=400", content: "<p>Contenido demo...</p>" },
         { id: 5, title: "Estrategias First-Party Data", date: "05 Dic 2025", cat: "Marketing", image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=800&h=400", content: "<p>Contenido demo...</p>" },
         { id: 6, title: "Automatización de Clientes", date: "01 Dic 2025", cat: "Automatización", image: "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?auto=format&fit=crop&q=80&w=800&h=400", content: "<p>Contenido demo...</p>" },

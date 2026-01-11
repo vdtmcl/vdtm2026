@@ -61,17 +61,23 @@ export const ContactForm = () => {
         <div className="w-full max-w-md mx-auto p-6 bg-white rounded-xl shadow-sm border border-slate-100">
             <div className="mb-6">
                 <h3 className="text-2xl font-bold text-slate-900">Contáctanos</h3>
-                <p className="text-slate-500">Te responderemos en menos de 24h.</p>
+                <p className="text-slate-500">Estamos ansiosos por leerte. 🚀</p>
             </div>
 
             {serverStatus === 'success' ? (
-                <div className="p-6 bg-green-50 rounded-lg text-center animate-in fade-in zoom-in">
-                    <CheckCircle className="w-12 h-12 text-green-500 mx-auto mb-3" />
-                    <h4 className="text-lg font-semibold text-green-800">¡Mensaje Enviado!</h4>
-                    <p className="text-green-600">Gracias por escribirnos.</p>
+                <div className="p-8 bg-blue-50 rounded-2xl text-center animate-in fade-in zoom-in border border-blue-100 shadow-sm">
+                    <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <CheckCircle className="w-8 h-8 text-blue-600" />
+                    </div>
+                    <h4 className="text-xl font-bold text-slate-900 mb-2">¡Recibido!</h4>
+                    <p className="text-slate-600 leading-relaxed mb-6">
+                        Gracias por tu interés. Hemos recibido tu mensaje correctamente y nuestro equipo lo revisará a la brevedad.
+                        <br /><br />
+                        ¡Hablamos pronto! 👋
+                    </p>
                     <button
                         onClick={() => setServerStatus('idle')}
-                        className="mt-4 text-sm font-medium text-green-700 hover:underline"
+                        className="text-sm font-semibold text-blue-600 hover:text-blue-800 transition-colors"
                     >
                         Enviar otro mensaje
                     </button>
