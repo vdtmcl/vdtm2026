@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#2563eb" />
+
+  <!-- SEO manejado por React Helmet en src/components/SEO.jsx -->
+
+  <!-- Preconnect para mejorar performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://challenges.cloudflare.com" />
+
+  <!-- Datos estructurados JSON-LD -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "VDTM",
+      "url": "https://www.vdtm.cl",
+      "logo": "https://www.vdtm.cl/logo.png",
+      "description": "Agencia de estrategia digital, desarrollo web y producción de contenidos asistida por IA",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Valparaíso y Viña del Mar",
+        "addressRegion": "Región de Valparaíso",
+        "addressCountry": "CL"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "vdtm.cl@gmail.com",
+        "contactType": "customer service",
+        "availableLanguage": "Spanish"
+      },
+      "sameAs": []
+    }
+    </script>
+
+  <title>VDTM - Estrategia Digital y Desarrollo Web</title>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+
+</html>

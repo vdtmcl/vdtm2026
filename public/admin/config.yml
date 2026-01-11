@@ -1,0 +1,22 @@
+backend:
+  name: github
+  repo: vdtmcl/vdtm2026 # Repositorio Real VDTM
+  branch: main
+  base_url: https://vdtm.cl # URL base para OAuth
+  auth_endpoint: oauth/authorize # Ruta a la function de authorize
+
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "blog"
+    label: "Blog"
+    folder: "src/content/blog"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Fecha", name: "date", widget: "datetime" }
+      - { label: "Categoría", name: "cat", widget: "select", options: ["IA", "Automatización", "Growth", "Ventas"] }
+      - { label: "Imagen (Thumbnail)", name: "image", widget: "image" }
+      - { label: "Cuerpo", name: "body", widget: "markdown" }

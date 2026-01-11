@@ -1,0 +1,10 @@
+name = "vdtm-web"
+compatibility_date = "2024-01-01"
+pages_build_output_dir = "dist"
+
+[vars]
+GITHUB_CLIENT_ID = "Ov23ligTgav41KOFLgZg"
+GITHUB_CLIENT_SECRET = "7249fcdcd1243ab569c672353b792bdcc334b2fa"
+RESEND_API_KEY = "re_G6Mr5v7f_MwUzrSWahpux9rvx3Cc4oord"
+VITE_TURNSTILE_SITE_KEY = "0x4AAAAAACLxFJ38BQ0TpwR0"
+TURNSTILE_SECRET_KEY = "0x4AAAAAACLxFHMXltkUF2mmq2HVS3vwFQs"
