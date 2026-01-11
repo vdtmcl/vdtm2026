@@ -19,7 +19,7 @@ export const WordRotator = () => {
 
     return (
         <span
-            className="inline-grid transition-all duration-700 ease-in-out align-bottom"
+            className="inline-grid transition-all duration-700 ease-in-out align-baseline"
             style={{
                 gridTemplateColumns: '1fr',
                 transitionProperty: 'width, opacity'
@@ -27,12 +27,12 @@ export const WordRotator = () => {
         >
             <span
                 className={`col-start-1 row-start-1 transition-opacity duration-500 ease-in-out ${visible ? 'opacity-100' : 'opacity-0'
-                    } text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 px-1 pb-3 -mb-2`}
+                    } text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 px-2 py-1 -my-1`}
             >
                 {words[index]}
             </span>
-            {/* Elemento invisible con padding para evitar recortes */}
-            <span className="col-start-1 row-start-1 invisible pointer-events-none px-1 pb-3 -mb-2">
+            {/* Elemento invisible para suavizar la transición del ancho y asegurar la línea base */}
+            <span className="col-start-1 row-start-1 invisible pointer-events-none px-2 py-1 -my-1">
                 {words[index]}
             </span>
         </span>
