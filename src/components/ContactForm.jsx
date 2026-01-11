@@ -58,10 +58,10 @@ export const ContactForm = ({ dark = false }) => {
     };
 
     return (
-        <div className={`w-full max-w-md mx-auto p-6 rounded-xl shadow-sm transition-colors border ${dark ? 'bg-slate-900 border-slate-800 text-white' : 'bg-white border-slate-100 text-slate-900'}`}>
-            <div className="mb-6">
-                <h3 className={`text-2xl font-bold ${dark ? 'text-white' : 'text-slate-900'}`}>Contáctanos</h3>
-                <p className={`${dark ? 'text-slate-400' : 'text-slate-500'}`}>Estamos ansiosos por leerte. 🚀</p>
+        <div className={`w-full max-w-md mx-auto p-4 md:p-6 rounded-xl shadow-sm transition-colors border ${dark ? 'bg-slate-900 border-slate-800 text-white' : 'bg-white border-slate-100 text-slate-900'}`}>
+            <div className="mb-3 md:mb-6">
+                <h3 className={`text-xl md:text-2xl font-bold ${dark ? 'text-white' : 'text-slate-900'}`}>Contáctanos</h3>
+                <p className={`text-xs md:text-sm ${dark ? 'text-slate-400' : 'text-slate-500'}`}>Estamos ansiosos por leerte. 🚀</p>
             </div>
 
             {serverStatus === 'success' ? (
@@ -83,66 +83,68 @@ export const ContactForm = ({ dark = false }) => {
                     </button>
                 </div>
             ) : (
-                <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+                <form onSubmit={handleSubmit(onSubmit)} className="space-y-2 md:space-y-4">
 
                     {/* Nombre */}
                     <div>
-                        <label className={`block text-sm font-medium mb-1 ${dark ? 'text-slate-300' : 'text-slate-700'}`}>Nombre</label>
+                        <label className={`block text-[10px] md:text-sm font-medium mb-0.5 ${dark ? 'text-slate-400' : 'text-slate-700'}`}>Nombre</label>
                         <input
                             {...register('name')}
                             type="text"
-                            className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all ${dark ? 'bg-slate-900 border-slate-700 text-white' : 'bg-white border-slate-200 text-slate-900'}`}
+                            className={`w-full px-3 py-1.5 md:px-4 md:py-2 text-sm md:text-base border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all ${dark ? 'bg-slate-900 border-slate-700 text-white' : 'bg-white border-slate-200 text-slate-900'}`}
                             placeholder="Tu nombre"
                         />
-                        {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name.message}</p>}
+                        {errors.name && <p className="text-red-500 text-[10px] mt-0.5">{errors.name.message}</p>}
                     </div>
 
                     {/* Empresa */}
                     <div>
-                        <label className={`block text-sm font-medium mb-1 ${dark ? 'text-slate-300' : 'text-slate-700'}`}>Empresa *</label>
+                        <label className={`block text-[10px] md:text-sm font-medium mb-0.5 ${dark ? 'text-slate-400' : 'text-slate-700'}`}>Empresa *</label>
                         <input
                             {...register('company')}
                             type="text"
-                            className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all ${dark ? 'bg-slate-900 border-slate-700 text-white' : 'bg-white border-slate-200 text-slate-900'}`}
-                            placeholder="Nombre de la empresa que representas"
+                            className={`w-full px-3 py-1.5 md:px-4 md:py-2 text-sm md:text-base border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all ${dark ? 'bg-slate-900 border-slate-700 text-white' : 'bg-white border-slate-200 text-slate-900'}`}
+                            placeholder="Organización"
                         />
-                        {errors.company && <p className="text-red-500 text-xs mt-1">{errors.company.message}</p>}
+                        {errors.company && <p className="text-red-500 text-[10px] mt-0.5">{errors.company.message}</p>}
                     </div>
 
                     {/* Email */}
-                    <div>
-                        <label className={`block text-sm font-medium mb-1 ${dark ? 'text-slate-300' : 'text-slate-700'}`}>Email</label>
-                        <input
-                            {...register('email')}
-                            type="email"
-                            className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all ${dark ? 'bg-slate-900 border-slate-700 text-white' : 'bg-white border-slate-200 text-slate-900'}`}
-                            placeholder="tucorreo@ejemplo.com"
-                        />
-                        {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>}
+                    <div className="grid grid-cols-1 gap-2">
+                        <div>
+                            <label className={`block text-[10px] md:text-sm font-medium mb-0.5 ${dark ? 'text-slate-400' : 'text-slate-700'}`}>Email</label>
+                            <input
+                                {...register('email')}
+                                type="email"
+                                className={`w-full px-3 py-1.5 md:px-4 md:py-2 text-sm md:text-base border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all ${dark ? 'bg-slate-900 border-slate-700 text-white' : 'bg-white border-slate-200 text-slate-900'}`}
+                                placeholder="tucorreo@ejemplo.com"
+                            />
+                            {errors.email && <p className="text-red-500 text-[10px] mt-0.5">{errors.email.message}</p>}
+                        </div>
                     </div>
 
                     {/* WhatsApp (Opcional) */}
                     <div>
-                        <label className={`block text-sm font-medium mb-1 ${dark ? 'text-slate-300' : 'text-slate-700'}`}>WhatsApp (Opcional)</label>
+                        <label className={`block text-[10px] md:text-sm font-medium mb-0.5 ${dark ? 'text-slate-400' : 'text-slate-700'}`}>WhatsApp (Opcional)</label>
                         <input
                             {...register('whatsapp')}
                             type="tel"
-                            className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all ${dark ? 'bg-slate-900 border-slate-700 text-white' : 'bg-white border-slate-200 text-slate-900'}`}
-                            placeholder="+56 9 1234 5678"
+                            className={`w-full px-3 py-1.5 md:px-4 md:py-2 text-sm md:text-base border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all ${dark ? 'bg-slate-900 border-slate-700 text-white' : 'bg-white border-slate-200 text-slate-900'}`}
+                            placeholder="+56 9..."
                         />
-                        {errors.whatsapp && <p className="text-red-500 text-xs mt-1">{errors.whatsapp.message}</p>}
+                        {errors.whatsapp && <p className="text-red-500 text-[10px] mt-0.5">{errors.whatsapp.message}</p>}
                     </div>
 
                     {/* Mensaje */}
                     <div>
-                        <label className={`block text-sm font-medium mb-1 ${dark ? 'text-slate-300' : 'text-slate-700'}`}>Mensaje</label>
+                        <label className={`block text-[10px] md:text-sm font-medium mb-0.5 ${dark ? 'text-slate-400' : 'text-slate-700'}`}>Mensaje</label>
                         <textarea
                             {...register('message')}
-                            rows="4"
-                            className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all resize-none ${dark ? 'bg-slate-900 border-slate-700 text-white' : 'bg-white border-slate-200 text-slate-900'}`}
+                            rows="2"
+                            className={`w-full px-3 py-1.5 md:px-4 md:py-2 text-sm md:text-base border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all resize-none ${dark ? 'bg-slate-900 border-slate-700 text-white' : 'bg-white border-slate-200 text-slate-900'}`}
                             placeholder="¿En qué podemos ayudarte?"
                         ></textarea>
-                        {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message.message}</p>}
+                        {errors.message && <p className="text-red-500 text-[10px] mt-0.5">{errors.message.message}</p>}
                     </div>
 
                     {/* Turnstile (Protección Spam) */}
@@ -157,16 +159,16 @@ export const ContactForm = ({ dark = false }) => {
                     <button
                         type="submit"
                         disabled={serverStatus === 'submitting'}
-                        className="w-full flex items-center justify-center py-3 px-4 bg-slate-900 text-white font-medium rounded-lg hover:bg-slate-800 focus:ring-4 focus:ring-slate-200 transition-all disabled:opacity-70 disabled:cursor-not-allowed"
+                        className={`w-full flex items-center justify-center py-2 md:py-3 px-4 font-bold rounded-lg transition-all disabled:opacity-70 disabled:cursor-not-allowed text-sm md:text-base uppercase tracking-wider ${dark ? 'bg-white text-slate-900 hover:bg-slate-100' : 'bg-slate-900 text-white hover:bg-slate-800'}`}
                     >
                         {serverStatus === 'submitting' ? (
                             <>
-                                <Loader2 className="w-5 h-5 animate-spin mr-2" />
+                                <Loader2 className="w-4 h-4 animate-spin mr-2" />
                                 Enviando...
                             </>
                         ) : (
                             <>
-                                Enviar Mensaje
+                                Hablemos
                                 <Send className="w-4 h-4 ml-2" />
                             </>
                         )}

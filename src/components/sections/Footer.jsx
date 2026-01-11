@@ -91,9 +91,9 @@ export const RobustFooter = ({ onNavigate }) => {
     return (
         <div className="contents">
             {/* Pantalla 1: Formulario solamente (Móvil) */}
-            <SectionWrapper id="contact" dark={true} className="!justify-center !pt-12 !pb-8 h-dvh overflow-hidden">
+            <SectionWrapper id="contact" dark={true} className="!justify-center !pt-10 !pb-4 h-dvh overflow-hidden">
                 <div className="flex flex-col items-center justify-center h-full">
-                    <div className="w-full max-w-sm">
+                    <div className="w-full max-w-[90%] sm:max-w-sm">
                         <ContactForm dark={true} />
                     </div>
                 </div>
