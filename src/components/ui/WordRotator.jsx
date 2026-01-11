@@ -11,7 +11,7 @@ export const WordRotator = () => {
             setTimeout(() => {
                 setIndex((prev) => (prev + 1) % words.length);
                 setVisible(true);
-            }, 600); // Tiempo para que la opacidad baje antes de cambiar la palabra
+            }, 600);
         }, 3000);
 
         return () => clearInterval(interval);
@@ -19,7 +19,7 @@ export const WordRotator = () => {
 
     return (
         <span
-            className="inline-grid transition-all duration-700 ease-in-out"
+            className="inline-grid transition-all duration-700 ease-in-out align-bottom"
             style={{
                 gridTemplateColumns: '1fr',
                 transitionProperty: 'width, opacity'
@@ -27,12 +27,12 @@ export const WordRotator = () => {
         >
             <span
                 className={`col-start-1 row-start-1 transition-opacity duration-500 ease-in-out ${visible ? 'opacity-100' : 'opacity-0'
-                    } text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 pb-1`}
+                    } text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 px-1 pb-3 -mb-2`}
             >
                 {words[index]}
             </span>
-            {/* Elemento invisible para mantener el ancho y suavizar la transición del texto negro */}
-            <span className="col-start-1 row-start-1 invisible pointer-events-none pb-1">
+            {/* Elemento invisible con padding para evitar recortes */}
+            <span className="col-start-1 row-start-1 invisible pointer-events-none px-1 pb-3 -mb-2">
                 {words[index]}
             </span>
         </span>
