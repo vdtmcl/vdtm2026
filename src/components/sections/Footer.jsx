@@ -87,7 +87,7 @@ export const RobustFooter = ({ onNavigate }) => {
                 <SectionWrapper id="contact" dark={true} className="!justify-center !pt-16 !pb-8 h-dvh overflow-hidden scale-90 sm:scale-100">
                     <div className="flex flex-col items-center justify-center h-full max-h-[85dvh]">
                         <div className="w-full max-w-sm">
-                            <ContactForm />
+                            <ContactForm dark={true} />
                         </div>
                     </div>
                     <NavigationControls prevId="blog" nextId="footer" onNavigate={onNavigate} dark={true} />
