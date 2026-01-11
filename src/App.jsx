@@ -62,6 +62,31 @@ export default function App() {
   };
 
   useEffect(() => {
+    // Escuchar teclas de dirección para navegación
+    const handleKeyDown = (e) => {
+      // Ignorar si hay un input activo
+      if (['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) return;
+
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        const currentIndex = DATA.sections.indexOf(DATA.sections[currentSectionIndex]);
+        if (currentIndex < DATA.sections.length - 1) {
+          handleNavigate(DATA.sections[currentIndex + 1]);
+        }
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        const currentIndex = DATA.sections.indexOf(DATA.sections[currentSectionIndex]);
+        if (currentIndex > 0) {
+          handleNavigate(DATA.sections[currentIndex - 1]);
+        }
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [currentSectionIndex]);
+
+  useEffect(() => {
     // Observador para actualizar la sección activa basándose en el scroll real
     const observerOptions = {
       root: null,

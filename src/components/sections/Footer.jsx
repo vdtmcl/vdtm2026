@@ -1,10 +1,11 @@
 import React from 'react';
 import { Mail, MapPin, Phone, Linkedin, Instagram, Facebook } from 'lucide-react';
 import { ContactForm } from '../ContactForm'; // Importamos el componente blindado
+import { NavigationControls } from '../ui/NavigationControls';
 
 export const RobustFooter = ({ onNavigate }) => {
     return (
-        <footer className="bg-slate-900 text-white pt-20 pb-10" id="contact">
+        <footer className="bg-slate-900 text-white pt-20 pb-10 relative" id="contact">
             <div className="max-w-7xl mx-auto px-6 lg:px-8">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
 
@@ -89,6 +90,7 @@ export const RobustFooter = ({ onNavigate }) => {
                     </div>
                 </div>
             </div>
+            <NavigationControls prevId="blog" onNavigate={onNavigate} dark={true} />
         </footer>
     );
 };
