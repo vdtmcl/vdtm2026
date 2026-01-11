@@ -19,20 +19,22 @@ export const TeamMemberModal = ({ member }) => (
 );
 
 export const TeamCard = ({ member, onClick }) => (
-    <div className="bg-white border border-slate-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 h-full flex flex-col">
-        <div className={`relative h-32 md:h-48 flex items-center justify-center overflow-hidden shrink-0 ${member.color || 'bg-slate-100'}`}>
-            {member.type === 'human' ? <User className="w-12 h-12 md:w-20 md:h-20 text-slate-300" /> : <Bot className={`w-12 h-12 md:w-20 md:h-20 ${member.color ? member.color.replace('bg-', 'text-').replace('100', '600') : 'text-purple-600'}`} />}
-            <div className="absolute top-2 right-2 bg-white/90 backdrop-blur p-1 rounded-full shadow-sm">
-                {member.type === 'human' ? <User className="w-3 h-3 md:w-4 md:h-4 text-slate-700" /> : <Bot className="w-3 h-3 md:w-4 md:h-4 text-purple-700" />}
+    <div className="bg-white border border-slate-100 rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 h-full flex flex-col">
+        <div className={`relative h-24 md:h-48 flex items-center justify-center overflow-hidden shrink-0 ${member.color || 'bg-slate-100'}`}>
+            {member.type === 'human' ? <User className="w-10 h-10 md:w-20 md:h-20 text-slate-300" /> : <Bot className={`w-10 h-10 md:w-20 md:h-20 ${member.color ? member.color.replace('bg-', 'text-').replace('100', '600') : 'text-purple-600'}`} />}
+            <div className="absolute top-1 right-1 bg-white/90 backdrop-blur p-0.5 rounded-full shadow-sm">
+                {member.type === 'human' ? <User className="w-2.5 h-2.5 md:w-4 md:h-4 text-slate-700" /> : <Bot className="w-2.5 h-2.5 md:w-4 md:h-4 text-purple-700" />}
             </div>
         </div>
-        <div className="p-3 md:p-4 flex-1 flex flex-col">
-            <div className="mb-2">
-                <h4 className="font-bold text-slate-900 text-sm md:text-lg leading-tight">{member.name}</h4>
-                <p className="text-[10px] md:text-xs uppercase tracking-wider font-semibold text-blue-600">{member.role}</p>
+        <div className="p-2 md:p-4 flex-1 flex flex-col">
+            <div className="mb-1 md:mb-2">
+                <h4 className="font-bold text-slate-900 text-xs md:text-lg leading-tight">{member.name}</h4>
+                <p className="text-[9px] md:text-xs uppercase tracking-wider font-semibold text-blue-600">{member.role}</p>
             </div>
-            <button onClick={onClick} className="mt-auto text-xs md:text-sm text-slate-500 hover:text-blue-600 font-medium flex items-center gap-1 transition-colors pt-2 md:pt-4 border-t border-slate-50">
-                Ver perfil <ArrowRight className="w-3 h-3" />
+            <button onClick={onClick} className="mt-auto text-[10px] md:text-sm text-slate-500 hover:text-blue-600 font-medium flex items-center gap-1 transition-colors pt-1.5 md:pt-4 border-t border-slate-50">
+                <span className="hidden md:inline">Ver perfil</span>
+                <span className="md:hidden">Perfil</span>
+                <ArrowRight className="w-2.5 h-2.5" />
             </button>
         </div>
     </div>

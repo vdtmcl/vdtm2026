@@ -17,7 +17,7 @@ export const Hero = ({ onContactClick, onNavigate }) => (
                 <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 leading-tight" aria-label="Agencia de Comunicación Digital para Organizaciones">
                     Agencia de <br /> Comunicación Digital <br /> para <WordRotator />
                 </h1>
-                <div className="lg:hidden relative rounded-2xl overflow-hidden shadow-xl aspect-video bg-slate-900 my-6 mx-auto w-[50%] md:w-[70%]">
+                <div className="lg:hidden relative rounded-2xl overflow-hidden shadow-xl aspect-video bg-slate-900 my-4 w-full">
                     <iframe className="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/Zz32k1w8G5Y?autoplay=1&mute=1&loop=1&playlist=Zz32k1w8G5Y&controls=0&showinfo=0&rel=0&modestbranding=1" title="Video" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                 </div>
                 <p className="text-base md:text-lg text-slate-600 max-w-lg leading-relaxed">
