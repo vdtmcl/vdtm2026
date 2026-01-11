@@ -186,8 +186,6 @@ export default function App() {
       {/* El Footer renderiza internamente el ID="contact" que ahora coincide con DATA.sections */}
       <RobustFooter onNavigate={handleNavigate} />
 
-      <FloatingWhatsApp />
-
       {selectedPost && <ModalWrapper onClose={() => setSelectedPost(null)}><BlogPostContent post={selectedPost} onContactClick={handleContactFromBlog} /></ModalWrapper>}
       {selectedMember && <ModalWrapper onClose={() => setSelectedMember(null)}><TeamMemberModal member={selectedMember} /></ModalWrapper>}
 

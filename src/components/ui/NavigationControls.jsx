@@ -5,7 +5,7 @@ export const NavigationControls = ({ prevId, nextId, onNavigate, dark = false })
     <>
         {/* Flechas para Subir (Discretas, abajo a la derecha) */}
         {prevId && (
-            <div className="absolute right-8 bottom-8 z-30 flex flex-col gap-3 items-center">
+            <div className="absolute right-8 top-1/2 transform -translate-y-1/2 z-30 flex flex-col gap-3 items-center">
 
                 {/* Ir al Inicio (Primer bloque) */}
                 <button
