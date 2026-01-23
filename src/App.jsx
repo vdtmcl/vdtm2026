@@ -32,14 +32,18 @@ export default function App() {
   // Inicializar Lenis para Scroll Suave
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      duration: 1.0,
+      easing: (t) => 1 - Math.pow(1 - t, 3), // Easing cúbico más suave
       orientation: 'vertical',
       gestureOrientation: 'vertical',
       smoothWheel: true,
       wheelMultiplier: 1,
-      touchMultiplier: 2,
+      touchMultiplier: 1.5,
       infinite: false,
+      syncTouch: true, // Sincronizar mejor con el touch
+      syncTouchLerp: 0.1, // Suavizar la interpolación del touch
+      touchInertiaMultiplier: 20, // Reducir la inercia para evitar overshooting
+      prevent: (node) => node.classList.contains('no-lenis'), // Permitir deshabilitar en elementos específicos
     });
 
     function raf(time) {
