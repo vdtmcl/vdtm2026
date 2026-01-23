@@ -1,11 +1,13 @@
 import ReactGA from "react-ga4";
 
-const GA_MEASUREMENT_ID = import.meta.env.VITE_GA_ID;
+const GA_MEASUREMENT_ID = import.meta.env.VITE_GA_ID || "G-FTVPW8BJ57";
 
 export const initGA = () => {
     if (GA_MEASUREMENT_ID) {
         ReactGA.initialize(GA_MEASUREMENT_ID);
-        console.log("GA4 Initialized");
+        console.log(`[GA4] Initialized with ${GA_MEASUREMENT_ID}`);
+    } else {
+        console.warn("[GA4] No Measurement ID found. Check VITE_GA_ID in .env");
     }
 };
 
