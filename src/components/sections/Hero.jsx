@@ -18,7 +18,7 @@ export const Hero = ({ onContactClick, onNavigate }) => (
                     Agencia de <br /> Comunicación Digital <br /> <span className="whitespace-nowrap">para <WordRotator /></span>
                 </h1>
                 <div className="xl:hidden relative rounded-2xl overflow-hidden shadow-xl aspect-video bg-slate-900 my-4 w-full">
-                    <video className="absolute top-0 left-0 w-full h-full object-cover" src="https://res.cloudinary.com/vdtm-cl/video/upload/v1769146054/video_portada_VDTM_2026_720_qkb5zu.mov" autoPlay loop muted playsInline controls={false}></video>
+                    <video className="absolute top-0 left-0 w-full h-full object-cover" src="https://res.cloudinary.com/vdtm-cl/video/upload/v1769146420/video_portada_VDTM_2026_720_v0vlqk.mov" autoPlay loop muted playsInline controls={false}></video>
                 </div>
                 <p className="text-base md:text-lg text-slate-600 max-w-lg leading-relaxed">
                     Modernizamos tu comunicación digital, somos un equipo de profesionales de las Comunicaciones <span className="font-bold cursor-pointer hover:text-sky-500 transition-colors" onClick={() => onNavigate('team')}>potenciados por Inteligencia Artificial.</span>
@@ -30,7 +30,7 @@ export const Hero = ({ onContactClick, onNavigate }) => (
             </Reveal>
             <Reveal delay={200} className="relative hidden xl:block">
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 aspect-video w-full bg-slate-900">
-                    <video className="absolute top-0 left-0 w-full h-full object-cover" src="https://res.cloudinary.com/vdtm-cl/video/upload/v1769146054/video_portada_VDTM_2026_720_qkb5zu.mov" autoPlay loop muted playsInline controls={false}></video>
+                    <video className="absolute top-0 left-0 w-full h-full object-cover" src="https://res.cloudinary.com/vdtm-cl/video/upload/v1769146420/video_portada_VDTM_2026_720_v0vlqk.mov" autoPlay loop muted playsInline controls={false}></video>
                 </div>
             </Reveal>
         </div>
