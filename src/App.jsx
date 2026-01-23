@@ -17,6 +17,7 @@ import { StructuredData, generateArticleStructuredData, generatePersonStructured
 import { DATA } from './data';
 
 import Lenis from 'lenis';
+import { initGA, logPageView, logSectionView } from './utils/analytics';
 
 export default function App() {
   const containerRef = useRef(null);
@@ -52,6 +53,10 @@ export default function App() {
     }
 
     requestAnimationFrame(raf);
+
+    // Inicializar Google Analytics
+    initGA();
+    logPageView(window.location.pathname);
 
     return () => {
       lenis.destroy();
@@ -119,6 +124,13 @@ export default function App() {
 
     return () => observer.disconnect();
   }, []);
+
+  // Registrar cambio de sección en Analytics
+  useEffect(() => {
+    if (DATA.sections[currentSectionIndex]) {
+      logSectionView(DATA.sections[currentSectionIndex]);
+    }
+  }, [currentSectionIndex]);
 
   // SEO dinámico basado en contenido actual
   const getCurrentSEO = () => {
