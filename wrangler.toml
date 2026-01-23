@@ -3,6 +3,9 @@ compatibility_date = "2024-09-23"
 compatibility_flags = ["nodejs_compat"]
 pages_build_output_dir = "dist"
 
+[build]
+command = "rm -rf node_modules package-lock.json && npm install --legacy-peer-deps && npm run build"
+
 [vars]
 GITHUB_CLIENT_ID = "Ov23ligTgav41KOFLgZg"
 GITHUB_CLIENT_SECRET = "7249fcdcd1243ab569c672353b792bdcc334b2fa"
