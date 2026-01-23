@@ -12,7 +12,7 @@ export const Hero = ({ onContactClick, onNavigate }) => (
         <div className="grid xl:grid-cols-2 gap-8 xl:gap-12 items-center relative z-20 h-full">
             <Reveal className="space-y-6 text-center xl:text-left flex flex-col justify-center items-center xl:items-start">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-bold uppercase tracking-wide">
-                    <Zap className="w-3 h-3 text-blue-500 fill-blue-500" /> VDTM En todo Valparaíso & Viña del Mar
+                    <Zap className="w-3 h-3 text-blue-500 fill-blue-500" /> SOMOS TALENTO HUMANO POTENCIADO POR IA
                 </div>
                 <h1 className="text-4xl md:text-5xl xl:text-6xl font-extrabold text-slate-900 leading-[1.1]" aria-label="Agencia de Comunicación Digital para Organizaciones">
                     Agencia de <br /> Comunicación Digital <br /> <span className="whitespace-nowrap">para <WordRotator /></span>
