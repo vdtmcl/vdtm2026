@@ -15,8 +15,12 @@ export const Header = ({ currentSection, onContactClick, onNavigate }) => {
     return (
         <header className={`fixed top-0 left-0 w-full z-40 transition-all duration-700 ease-in-out ${headerClass}`}>
             <div className="max-w-7xl mx-auto px-4 md:px-12 flex justify-between items-center">
-                <div className="flex items-center gap-1 font-bold text-2xl tracking-tighter cursor-pointer" onClick={() => scrollTo('hero')}>
-                    <span>VDTM<span className="text-sky-500">.</span></span>
+                <div className="cursor-pointer" onClick={() => scrollTo('hero')}>
+                    <img
+                        src={isScrolled ? "https://res.cloudinary.com/vdtm-cl/image/upload/v1769143172/LOGO_VDTM_2026_FONDO_OSCURO_iff971.png" : "https://res.cloudinary.com/vdtm-cl/image/upload/v1769143016/LOGO_VDTM_2026_yt8wxy.png"}
+                        alt="VDTM Logo"
+                        className="h-10 w-auto transition-all duration-300"
+                    />
                 </div>
                 <nav className="hidden md:flex items-center gap-8">
                     {DATA.menu.map(item => (

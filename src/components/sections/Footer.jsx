@@ -17,9 +17,7 @@ export const RobustFooter = ({ onNavigate }) => {
     const ContactInfo = () => (
         <div className="space-y-6 md:space-y-8">
             <div>
-                <span className="text-blue-400 font-semibold tracking-wider text-xs md:sm uppercase">
-                    Potencia tu impacto digital
-                </span>
+                <img src="https://res.cloudinary.com/vdtm-cl/image/upload/v1769143172/LOGO_VDTM_2026_FONDO_OSCURO_iff971.png" alt="VDTM Logo" className="h-12 w-auto mb-4" />
                 <h2 className="text-3xl md:text-5xl font-bold mt-2 mb-3 md:mb-4 leading-tight">
                     Impulsa tu visión
                 </h2>

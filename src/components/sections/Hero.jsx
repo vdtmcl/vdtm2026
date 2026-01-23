@@ -18,10 +18,10 @@ export const Hero = ({ onContactClick, onNavigate }) => (
                     Agencia de <br /> Comunicación Digital <br /> <span className="whitespace-nowrap">para <WordRotator /></span>
                 </h1>
                 <div className="xl:hidden relative rounded-2xl overflow-hidden shadow-xl aspect-video bg-slate-900 my-4 w-full">
-                    <iframe className="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/Zz32k1w8G5Y?autoplay=1&mute=1&loop=1&playlist=Zz32k1w8G5Y&controls=0&showinfo=0&rel=0&modestbranding=1" title="Video" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                    <video className="absolute top-0 left-0 w-full h-full object-cover" src="https://res.cloudinary.com/vdtm-cl/video/upload/v1769143738/video_portada_VDTM_2026_1080p_oudc0g.mov" autoPlay loop muted playsInline controls={false}></video>
                 </div>
                 <p className="text-base md:text-lg text-slate-600 max-w-lg leading-relaxed">
-                    Modernizamos tu comunicación digital, somos un equipo de profesionales potenciados por Inteligencia Artificial.
+                    Modernizamos tu comunicación digital, somos un equipo de profesionales <span className="font-bold cursor-pointer hover:text-sky-500 transition-colors" onClick={() => onNavigate('team')}>potenciados por Inteligencia Artificial.</span>
                 </p>
                 <div className="flex flex-row gap-4 justify-center xl:justify-start w-full md:w-auto">
                     <Button onClick={onContactClick} icon={ChevronRight} className="flex-1 md:flex-none">Hablemos</Button>
@@ -30,7 +30,7 @@ export const Hero = ({ onContactClick, onNavigate }) => (
             </Reveal>
             <Reveal delay={200} className="relative hidden xl:block">
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 aspect-video w-full bg-slate-900">
-                    <iframe className="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/Zz32k1w8G5Y?autoplay=1&mute=1&loop=1&playlist=Zz32k1w8G5Y&controls=0&showinfo=0&rel=0&modestbranding=1" title="Video" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                    <video className="absolute top-0 left-0 w-full h-full object-cover" src="https://res.cloudinary.com/vdtm-cl/video/upload/v1769143738/video_portada_VDTM_2026_1080p_oudc0g.mov" autoPlay loop muted playsInline controls={false}></video>
                 </div>
             </Reveal>
         </div>
