@@ -30,7 +30,7 @@ export const TheMethod = ({ onNavigate }) => {
                                 <div className="flex items-center justify-between p-3 md:p-6">
                                     <div className="flex items-center gap-3 md:gap-4">
                                         <div className={`w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center transition-all duration-300 ${openIndex === idx ? 'bg-blue-100 text-blue-600 scale-110' : 'bg-slate-200 text-slate-500'}`}>{item.icon}</div>
-                                        <h3 className={`font-bold text-sm md:text-lg transition-all duration-300 ${openIndex === idx ? 'text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-indigo-600' : 'text-slate-700'}`}>{item.title}</h3>
+                                        <h3 className={`font-bold text-sm md:text-lg transition-all duration-300 ${openIndex === idx ? 'text-[#0ea5e9]' : 'text-slate-700'}`}>{item.title}</h3>
                                     </div>
                                     <ChevronDown className={`w-4 h-4 text-slate-400 transition-transform duration-300 ${openIndex === idx ? 'rotate-180 text-blue-600' : ''}`} />
                                 </div>

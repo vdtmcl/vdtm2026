@@ -20,7 +20,7 @@ export const Services = ({ onNavigate }) => {
                         <div className={`bg-slate-800 rounded-2xl border border-slate-700 overflow-hidden transition-all duration-300 cursor-pointer hover:border-sky-500/50 flex flex-col md:block ${openServiceId === svc.id ? 'ring-2 ring-sky-500 bg-slate-750 flex-grow md:flex-grow-0' : 'flex-grow md:flex-grow-0'}`} onClick={() => toggleService(svc.id)}>
                             <div className="p-3 md:p-8 flex flex-col h-full">
                                 <div className="flex items-center gap-4 md:block mb-2 md:mb-6">
-                                    <div className={`w-10 h-10 md:w-12 md:h-12 rounded-lg flex items-center justify-center transition-colors shrink-0 ${openServiceId === svc.id ? 'bg-gradient-to-br from-blue-600 to-sky-400 text-white' : 'bg-slate-900 text-sky-400'}`}>
+                                    <div className={`w-10 h-10 md:w-12 md:h-12 rounded-lg flex items-center justify-center transition-colors shrink-0 ${openServiceId === svc.id ? 'bg-[#0ea5e9] text-white' : 'bg-slate-900 text-sky-400'}`}>
                                         {svc.icon}
                                     </div>
                                     <h3 className="text-lg md:text-xl font-bold text-white">{svc.title}</h3>
